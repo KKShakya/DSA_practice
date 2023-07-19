@@ -30,13 +30,12 @@
 // Xor of itself gives 0 and number itself with 0;
 
 function XorMiss(arr) {
-  let xor = arr.length-1;
-  for (let i = 0; i < arr.legnth; i++) {
-    xor ^= i;
-    xor ^= arr[i];
-  }
+  let xor = 0, i = 0;
+	for (i = 0; i < nums.length; i++) {
+		xor = xor ^ i ^ nums[i];
+	}
 
-  console.log(xor);
+	console.log(xor ^ i);
 }
 
 let arr = [3, 0, 1]
