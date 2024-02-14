@@ -28,7 +28,11 @@ var removeDuplicates = function(nums) {
              nums[j] = nums[i];
             
          }
+         console.log(`arr after ${i} switch =>`, nums)
      }
      console.log(nums);
  return j+1;
 };
+
+let ans  = removeDuplicates([0,0,1,1,2,2,2,3,4,4,5])
+console.log("ans",ans)

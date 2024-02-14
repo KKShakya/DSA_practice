@@ -18,7 +18,7 @@ const getSecondOrderElements = (n, a)=> {
         //if bigger thasn largest update largest 
         //at the same time update secLArgset as largest is going to change 
         // from previous largest to current largest
-        //so previous largest is probable secLargest 
+        //so previous largest is probable secLargest , willbe the next king
           if(a[i]>largest){
               secLargest = largest;
               largest = a[i];
