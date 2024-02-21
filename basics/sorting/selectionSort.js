@@ -17,3 +17,6 @@ const sort = (arr)=>{
 }
 
 sort(arr);
+
+
+newSOrt = (arr)=>{}

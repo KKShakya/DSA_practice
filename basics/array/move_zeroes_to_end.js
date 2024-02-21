@@ -51,11 +51,35 @@ function moveZerosTwoLoops(arr){
         }
         
       }
-      console.log(arr,"two loops");
+      console.log(arr,"two loops nested");
 } 
 
 moveZerosTwoLoops(arr);
 
+//method 3 using two for loops but independent
+var moveZeroes = function (a) {
+  let i = 0;
+  let n  = a.length;
+  for(let k=0;k<n;k++)
+  {
+      if(a[k]==0){
+          i=k;
+          break;
+      }
+  }
+  for(let j=i+1;j<n;j++){
+    
+     if(a[i]==0 && a[i]!=a[j]){
+         // console.log(a[i],a[j])
+         let tmp = a[i];
+         a[i] = a[j];
+         a[j] = tmp;
+     i++;
+     };
+  }
+  console.log(a,"two loops independent")
+ }
+ moveZeroes(arr)
 
 //optimal approach snowball effect down the hill
 //more zeroes get wrapped up in snowball and we repalce a group
