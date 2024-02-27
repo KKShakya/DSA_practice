@@ -1,0 +1,33 @@
+function findSubstring(s) {
+    // Initialize an array to keep track of character frequencies
+    const map = new Array(128).fill(0);
+    let counter = 0; // Counter to check whether the substring is valid
+    let i = 0; // Pointer for the start of the substring
+    let j = 0; // Pointer for the end of the substring
+    let answer = 0; // The length of the longest valid substring
+
+    // Loop through the string
+    while (j < s.length) {
+        // Increase the frequency of the character at index j
+        // and update the counter if it's greater than 0
+        if (map[s.charCodeAt(j)] > 0) {
+            counter++;
+        }
+        map[s.charCodeAt(j)]++;
+        j++; // Move the end pointer forward
+
+        // If there's any character with frequency > 0, increment the counter
+        // and move the start pointer until the substring becomes valid
+        while (counter > 0) {
+            if (map[s.charCodeAt(i)] >= 0) {
+                counter--;
+            }
+            map[s.charCodeAt(i)]++; // Increase the frequency of the character
+            i++; // Move the start pointer forward
+        }
+
+        // Update the answer to be the maximum length of valid substrings found so far
+        answer = Math.max(answer, j - i);
+    }
+    return answer; // Return the length of the longest valid substring
+}
