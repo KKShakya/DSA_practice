@@ -48,5 +48,7 @@
 const arr = [1,3,-3,1,2,5,6,7];
 const k = 3;
 
-
+//Note the same can be done using first negative approach just push 
+// last ele of maxArray, but it will fail for arr,  1,3,-3,1,0,5,6,7
+// try it. 
 max_of_subarrays(arr,arr.length,k)
