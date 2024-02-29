@@ -3,6 +3,8 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 
+//brute force sort ther array (nlogn)
+
 // This function sorts an array of numbers containing only 0s, 1s, and 2s, in ascending order.
 // It is a variation of the famous Dutch National Flag problem.
 
