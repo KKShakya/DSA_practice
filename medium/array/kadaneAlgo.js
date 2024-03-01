@@ -49,22 +49,37 @@ function maxSubarraySumBetter(arr, n) {
 // else if currSum <0 we say currSum = 0;
 // as getting a negative currSum will not get as near to the maximum sum of the Array;
 const maxSubarraySumOptimal = (arr,n)=>{
-  //these two can help to print the actual subraray with maxSum;
-  let left  =0,right=0;
-  let currSum = 0,maxSum = -10000;
-  for(let i=0;i<n;i++){
-    currSum += arr[i]
-    if(currSum>maxSum){
-      maxSum = currSum;
-      right = i;
+  const maxSubarraySumOptimal = (arr, n) => {
+    // Initialize variables to keep track of the subarray with the maximum sum
+    let left = 0; // Start index of the subarray
+    let right = 0; // End index of the subarray
+  
+    let currSum = 0; // Current sum of the subarray
+    let maxSum = -10000; // Maximum sum found so far, initialized with a very small value
+  
+    // Iterate through the array
+    for (let i = 0; i < n; i++) {
+      // Add the current element to the current sum
+      currSum += arr[i];
+  
+      // Update the maximum sum and the corresponding subarray indices if the current sum is greater than the maximum sum
+      if (currSum > maxSum) {
+        maxSum = currSum;
+        right = i; // Update the end index of the subarray
+      }
+  
+      // If the current sum becomes negative, reset it to 0 and move the left pointer to the next index
+      if (currSum < 0) {
+        currSum = 0;
+        left = i + 1; // Update the start index of the subarray
+      }
     }
-    if(currSum<0){
-      currSum = 0;
-      left = i+1
-    }
-  }
-console.log('the Subarray that has maxSum : ',arr.slice(left,right+1));
-  return maxSum;
+  
+    // Output the subarray with the maximum sum
+    console.log('The subarray that has the maximum sum:', arr.slice(left, right + 1));
+  
+    // Return the maximum sum of the subarray
+    return maxSum;
 }
 
 
