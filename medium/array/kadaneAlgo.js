@@ -48,7 +48,7 @@ function maxSubarraySumBetter(arr, n) {
 // if currsum>max Sum we update maxSum 
 // else if currSum <0 we say currSum = 0;
 // as getting a negative currSum will not get as near to the maximum sum of the Array;
-const maxSubarraySumOptimal = (arr,n)=>{
+
   const maxSubarraySumOptimal = (arr, n) => {
     // Initialize variables to keep track of the subarray with the maximum sum
     let left = 0; // Start index of the subarray
@@ -90,4 +90,4 @@ console.log(`The maximum subarray sum brute : ${maxSum}`);
 const maxSumBetter = maxSubarraySumBetter(arr, n);
 console.log(`The maximum subarray sum Better: ${maxSumBetter}`);
 const maxSumOptimal = maxSubarraySumOptimal(arr, n);
-console.log(`The maximum subarray sum Better: ${maxSumOptimal}`);
+console.log(`The maximum subarray sum Better: ${maxSumOptimal}`)
