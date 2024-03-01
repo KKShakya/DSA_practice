@@ -5,6 +5,8 @@
 // inner for getting the count of that elemnt
 // and finally return the ans if count>n/2 return arr[i];
 
+
+
 const majorityBrute  = (arr,n)=>{
 
    // If there's only one element in the array, it's the majority element by default
@@ -67,6 +69,23 @@ const majorityBetter = (nums,n)=>{
    return nums[0];
 }
 
+
+
+//***************************************/
+// Note : Since we need to find the majority element > n/2. This means we will surely get the elemtent
+// and there could be only one Single element <=> this is importatnnto know;
+// n/2 is haslf the size of array, so can there ve to majority the anser is no.
+
+
+
+//morre's voting alorithm seeks out a majority element if one exists.
+//ifa ny elements is majority then it's count can't be <=n/2 at specified size array;
+//then we say if that elements appear > n/2
+//  ex = 7,7,5,7,5,1  n = 6.
+//  so 7 appears 3 times and other appears 3 times so 3-3= 0.
+ //or we can say 7 can't be majorrity element as 3<=n/2
+
+//**************************************** */
 
 
 //optimal is without using storage space
