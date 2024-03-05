@@ -33,3 +33,12 @@ var maxProfitOptimal = function (prices) {
 
   return maxProfit
 };
+
+
+const pricecs=[7,1,4,6,5];
+const prices2 = [7,6,4,3,1];
+
+console.log(maxProfit(pricecs))
+console.log(maxProfitOptimal(pricecs))
+console.log(maxProfit(prices2))
+console.log(maxProfitOptimal(prices2))
