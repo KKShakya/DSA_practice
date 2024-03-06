@@ -52,3 +52,52 @@ function lengthOfLongestSubstringBluePrint(s) {
     
     console.log( max);
 }
+
+const lengthOfLongestSubstringBest = (s)=>{
+//the above code fails for some cases ex-'aab'
+
+// use this PerformanceTiming
+// Check if the string is empty, return 0 if true
+if (s.length == 0) return 0;
+
+// Initialize a map to track characters and their indices in the current substring
+let map = new Map();
+
+// Initialize maxLength to store the maximum length of the substring without repeating characters
+let maxLength = 0;
+
+// Initialize two pointers i and j for the sliding window approach
+let i = 0; // Start index of the current substring
+let j = 0; // End index of the current substring
+
+// Iterate through the string
+while (j < s.length) {
+    // If the current character doesn't exist in the substring
+    if (!map.has(s[j])) {
+        // Add the current character to the map along with its index
+        map.set(s[j], j);
+        // Update maxLength if the current substring length is greater
+        maxLength = Math.max(maxLength, j - i + 1);
+    } else {
+        // If the current character already exists in the substring
+        // Slide the window to the right until the duplicate character is removed
+        while (s[i] !== s[j]) {
+            // Remove characters from the start of the substring until the duplicate character
+            map.delete(s[i]);
+            // Move the start index to the right
+            i++;
+        }
+        // Remove the duplicate character from the map
+        map.delete(s[i]);
+        // Move the start index to the right
+        i++;
+        // Add the current character to the map along with its index
+        map.set(s[j], j);
+    }
+    // Move the end index to the right for the next character
+    j++;
+}
+
+// Return the maximum length of the substring without repeating characters
+return maxLength;
+}
