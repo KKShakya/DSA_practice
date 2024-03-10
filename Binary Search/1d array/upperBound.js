@@ -31,7 +31,7 @@ const upperBound = (arr, target) => {
 const arr = [1, 2, 2, 3, 3, 5, 6];
 const target = 4;
 
-// this code above solves the statemetn
+// this code above solves the statement
 //but wait what if that number is not present in the array the lower will get updated by the last elment that is just
 //greater than it, seethe output;
 
