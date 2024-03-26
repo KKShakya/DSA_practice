@@ -17,7 +17,7 @@
 // how to count adjacent can make bouqet,simple keep a cnt increase by 1 whenever you get bloomed,
 // and when it is unbloomed flower store the cnt/k in some variable and make cnt = 0(restart);
 
-
+// link=>
 
 function findMin(arr) {
 
