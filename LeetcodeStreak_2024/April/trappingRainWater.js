@@ -66,3 +66,36 @@ while(low < high){
 return ans;
 };
 
+
+
+//optimal one without space
+
+function trapRainWater(heights) {
+  let left = 0;
+  let right = heights.length - 1;
+  let res = 0;
+  let maxleft = 0;
+  let maxright = 0;
+
+  while (left <= right) {
+      if (heights[left] <= heights[right]) {
+          if (heights[left] >= maxleft) {
+              maxleft = heights[left];
+          } else {
+              res += maxleft - heights[left];
+          }
+          left++;
+      } else {
+          if (heights[right] >= maxright) {
+              maxright = heights[right];
+          } else {
+              res += maxright - heights[right];
+          }
+          right--;
+      }
+  }
+
+  return res;
+}
+
+
