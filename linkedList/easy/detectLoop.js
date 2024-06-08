@@ -9,6 +9,7 @@ var hasCycle = function(head) {
   while(fast && fast.next){
       fast = fast.next.next;
       slow = slow.next;
+      //the cycle can be anywhere so checking for eacch pointers
       if(fast==slow) return true;
   }
  

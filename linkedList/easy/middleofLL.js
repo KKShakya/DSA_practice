@@ -31,3 +31,13 @@ var middleNode = function(head) {
   }
   return tortoise
 };
+
+
+// The condition rabbit && rabbit.next guarantees that:
+// rabbit is not null.
+// rabbit.next is also not null.
+// This means rabbit can safely move two steps ahead (rabbit = rabbit.next.next) without causing a null reference error.
+
+
+// Odd-length list: The tortoise pointer will be at the exact middle node when the loop terminates.
+// Even-length list: The tortoise pointer will be at the second of the two central nodes when the loop terminates.
