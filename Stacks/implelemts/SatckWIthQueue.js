@@ -1,4 +1,4 @@
-// link=>
+// link=>https://leetcode.com/problems/implement-stack-using-queues/
 
 //using two queues:
 
@@ -79,6 +79,9 @@ size(){
 // using single Queue
 
 // MyStack class using one queue solution
+// NOte:The single queue approach for implementing a stack is interesting but comes with a performance cost in terms of the push operation, which is 𝑂(𝑛) due to the rotation of elements. This might be acceptable depending on the use case and requirements but should be considered when designing applications that require efficient stack operations.
+
+
 class MyStackSingleQueue {
   constructor() {
       this.q1 = new MyQueue(); // Initialize a single queue
