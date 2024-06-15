@@ -1,10 +1,31 @@
-var nextGreaterElement = function (nums2) {
+var nextGreaterElementLeft = function (nums2) {
 
   let st = new Stack();
   let map = new Map();
   let ans = [];
 
   for (let i = 0; i < nums2.length; i++) {
+    //if satck is not empty and you find peek 
+    //element is less than equal to current
+    // that means it should not exist;
+    //as we only concerned about greater
+    while (!st.isEmpty() && st.peek() <= nums2[i]) {
+      st.pop();
+    }
+    //empty means none exist
+    ans[i] = st.isEmpty() ? -1 : st.peek()
+    st.push(nums2[i]);
+  }
+  console.log(ans)
+  return ans;
+};
+var nextGreaterElementRight = function (nums2) {
+
+  let st = new Stack();
+  let map = new Map();
+  let ans = [];
+
+  for (let i = nums2.length-1; i>=0; i--) {
     //if satck is not empty and you find peek 
     //element is less than equal to current
     // that means it should not exist;

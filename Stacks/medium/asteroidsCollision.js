@@ -27,7 +27,7 @@ var asteroidCollision = function (ast) {
         st.pop();
       }
       else {
-        ///or at last we can bring in new one
+        ///or at last we can bring in new one, only if no elements present or negaitve direction present
         if (st.isEmpty() || st.peek() < 0) {
           st.push(ast[i]);
         }
