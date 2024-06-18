@@ -1,0 +1,132 @@
+
+
+Sliding Window Pattern Documentation"
+
+
+1. Constant Window
+Problem Statement:
+Given a window size k = 4, we need to find the subarray of length 4 with the largest sum.
+
+Example:
+Input: arr = [1, 2, 4, 5, 5, 7, 8], k = 4
+Output: The subarray with the largest sum of length 4.
+
+Approach:
+We iterate through the array using nested loops to find the sum of every subarray of length k.
+
+Pseudocode:
+for(i = 0 to n-1){
+  for(j = i to k-1){
+    // Calculate sum of elements from index i to i+k-1
+    sum += arr[j];
+  }
+  // Store the maximum sum found
+  maxSum = max(maxSum, sum);
+  sum = 0; // Reset sum for the next subarray
+}
+"
+
+
+2. Longest Subarray with Sum <= k
+Problem Statement:
+Find the longest subarray such that the sum of its elements is less than or equal to k.
+
+Brute Force Approach:
+Generate all possible subarrays and check if their sum is less than or equal to k.
+
+Pseudocode:
+for(i = 0 to n-1){
+  for(j = i to n-1){
+    sum += arr[j];
+    if(sum <= k){
+      maxLength = max(maxLength, j-i+1);
+    } else {
+      break;
+    }
+  }
+  sum = 0; // Reset sum for the next subarray
+}
+"
+
+
+Better Approach (Sliding Window):
+Expand the window when the target is not hit, shrink it when the target is exceeded.
+
+Pseudocode:
+l = 0; // Left pointer
+r = 0; // Right pointer
+sum = 0;
+maxLength = 0;
+
+while(r < n){
+  sum += arr[r];
+  while(sum > k){
+    // Shrink the window
+    sum -= arr[l];
+    l += 1;
+  }
+  if(sum <= k){
+    // Update maximum length
+    maxLength = max(maxLength, r-l+1);
+  }
+  r += 1; // Keep expanding
+}
+
+Time Complexity:
+O(n + n) -> The inner loop runs sometimes 1, 2, 3, ..., n at max, not every time.
+Space Complexity:
+O(1)
+"
+
+
+Optimal Approach:
+If asked for maxLength, once we find a bigger window, we don't shrink it again. Instead, we keep moving forward or expanding it.
+
+Pseudocode:
+l = 0; // Left pointer
+r = 0; // Right pointer
+sum = 0;
+maxLength = 0;
+
+while(r < n){
+  sum += arr[r];
+  if(sum > k){
+    // Shrink the window just once to check the new window
+    sum -= arr[l];
+    l += 1;
+  }
+  if(sum <= k){
+    // Update maximum length
+    maxLength = max(maxLength, r-l+1);
+  }
+  r += 1; // Keep expanding
+}
+"
+
+
+3. Number of Subarrays with Sum <= k
+Problem Statement:
+Calculate the number of subarrays where the sum is less than or equal to k.
+
+Explanation:
+- Count the number of subarrays with sum <= k (X).
+- Count the number of subarrays with sum <= k-1 (Y).
+- The answer is X - Y.
+"
+
+
+4. Minimum Window Substring
+Problem Statement:
+Find the minimum window substring that satisfies a given condition.
+
+Approach:
+Get a valid window and try to shrink the window according to the condition. This involves four patterns:
+1. Expand the window to include more elements.
+2. Contract the window from the left.
+3. Update the minimum window size found.
+4. Continue adjusting the window to meet the condition.
+
+General Pattern:
+- Use two pointers to maintain the window.
+- Adjust the window size dynamically based on the problem's condition.
+"
