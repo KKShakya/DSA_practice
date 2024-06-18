@@ -92,12 +92,7 @@ countAnagrams(str1, pat1)
 
 //mthod 3 for long inputs
 
-  /**
-   * Searches for occurrences of a pattern in a text.
-   * @param {string} pat - The pattern to search for.
-   * @param {string} str - The text in which to search for the pattern.
-   * @return {number} - The number of occurrences of the pattern in the text.
-   */
+
    const countAnagramsBest = (str, pat)=> {
       // Initialize arrays to store the frequency of characters in the pattern and text.
       let textFreq = new Array(26).fill(0);  
