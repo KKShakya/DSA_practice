@@ -59,3 +59,37 @@ pat2 = 3
 LongestSubArrawithKUniqueCharacters(str2, pat2);
 
 // if not found return -1
+
+
+
+//stansdard tempalte would be
+function maxSubarrayWithAtMostKDistinctChars(arr, k) {
+  let i = 0, j = 0;
+  let maxLen = 0;
+  let map = new Map();
+
+  while (j < arr.length) {
+      // Add the current character to the map
+      map.set(arr[j], (map.get(arr[j]) || 0) + 1);
+
+      // If the map size exceeds k, shrink the window from the left
+      while (map.size > k) {
+          map.set(arr[i], map.get(arr[i]) - 1);
+          if (map.get(arr[i]) === 0) {
+              map.delete(arr[i]);
+          }
+          i++;
+      }
+
+      // Update the maximum length of the window
+      maxLen = Math.max(maxLen, j - i + 1);
+      j++;
+  }
+
+  return maxLen;
+}
+
+// Example usage:
+let arr = ['a', 'b', 'c', 'a', 'c'];
+let k = 2;
+console.log(maxSubarrayWithAtMostKDistinctChars(arr, k)); // Output: 3

@@ -1,3 +1,22 @@
+// link=>https://www.geeksforgeeks.org/problems/max-sum-subarray-of-size-k5313/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=bottom_sticky_on_article
+// Intution:
+
+// Start with two pointers, i (left) and j (right), both initialized to the start of the array.
+// Maintain a windowSum to keep track of the sum of elements within the window.
+// Expanding the Window:
+
+// Increment j to expand the window by including more elements until the window size reaches k.
+// Specifically, keep increasing j until the condition j - i + 1 is equal to k.
+// Maintaining the Window:
+
+// Once the window size is k, calculate the sum of the current window and update the maxSum if the current window sum is greater.
+// Then slide the window to the right by:
+// Subtracting the element at the i-th position (leftmost element) from windowSum.
+// Incrementing i to effectively remove the leftmost element from the window.
+// Incrementing j to add the next element to the window.
+
+
+
 const  fixedSlidingWindow = (arr,givenSize) =>{
   let n = arr.length;
   let maxSum = 0;
@@ -33,3 +52,4 @@ fixedSlidingWindow(arr, k)
 
 
 // maxSumSubArrWithSizeK.js
+

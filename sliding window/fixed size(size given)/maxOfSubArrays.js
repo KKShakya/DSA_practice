@@ -1,10 +1,4 @@
-/**
- * Function to find the maximum element in each subarray of length K in an array.
- * @param {number[]} arr - The input array.
- * @param {number} n - The length of the input array.
- * @param {number} k - The length of subarrays.
- * @return {number[]} - An array containing the maximum element in each subarray.
- */
+
  function max_of_subarrays(arr, n, k) {
   // Initialize two pointers, one for the start of the window and one for the end.
   let i = 0;
