@@ -32,4 +32,5 @@ let target = 9;
 let result = countAllSub(arr.length, target, arr);
 console.log(result);  // Output: true
 
-//iff you eant you cans tore it in the strign as ans;
+//if  you want you can  store it in the strign as ans;
+

@@ -4,7 +4,7 @@
 
 var combinationSum3 = function(k, n) {
   let ans = [];
-
+ //k is length of the answers array
    helper(1, n,k, ans, 0, []);
    return ans;
 };

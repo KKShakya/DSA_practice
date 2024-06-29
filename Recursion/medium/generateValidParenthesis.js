@@ -27,6 +27,17 @@
 // We get an answer, when count of open == 0 and count of close == 0.
 
 
+//let me explain, when you draw recusion tree you will understand but the intution is to genrate a valid parenthesis;
+// let suppose , you have added a open bracket '(' to make it valid you need closing bracket, so you are need of one closign bracket so increase its close+1;
+// so whenver we add opening bracket we are in search of closing bracket and one opportunity is deducted to opening bracket to so open-1
+//if (open > 0) helper(arr, ans + '(', open - 1, close + 1);
+
+// 2. if you were toadd closing bracket, that means you made one step closer to make it valid, that means one step closer so close-1;
+ // but we don't need opening bracket toa dd more of it as we are already trying to balanace the current opening brackets
+
+ //when you will draw its recursion tree it will not always have two calls per sub problem;
+
+
 var generateParenthesis = function(n) {
 
   function helper(arr, ans, open, close) {
