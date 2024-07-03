@@ -48,3 +48,6 @@ var solveNQueens = function(n) {
      return true;
  
  }
+
+ //can be optimized if keep track of each cell was alredy marked or not
+ // with hassh map
