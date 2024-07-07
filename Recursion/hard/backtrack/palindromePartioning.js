@@ -4,7 +4,7 @@
 
 
 // do we partiotion only if the string isPalindrome
-  
+
 //                     aab
 //              0/       1|       2\
 //            a|ab      aa|b         aab //x not a plindrome so this call will not take place
@@ -17,36 +17,35 @@
 // so we gotor answers
 
 
-var partition = function(s) {
+var partition = function (s) {
   let ans = [];
-  helper(s,ans,[],0)
+  helper(s, ans, [], 0)
   return ans;
 };
 
-const helper = (s,ans,ds,idx)=>{
+const helper = (s, ans, ds, idx) => {
   //base case
-  if(idx==s.length){
-      ans.push([...ds]);
-      return;
+  if (idx == s.length) {
+    ans.push([...ds]);
+    return;
   }
 
-  for(let i=idx;i<s.length;i++)
-  {
-      if(isPalindrome(s,idx,i)){
-          ds.push(s.substring(idx,i+1));
-          helper(s,ans,ds,i+1);
-          ds.pop()
-      }
+  for (let i = idx; i < s.length; i++) {
+    if (isPalindrome(s, idx, i)) {
+      ds.push(s.substring(idx, i + 1));
+      helper(s, ans, ds, i + 1);
+      ds.pop()
+    }
   }
 }
 
-const isPalindrome = (s,start,end)=>{
-  while(start<=end){
-      if(s[start]!=s[end]){
-          return false;
-      }
-      start++;
-      end--;
+const isPalindrome = (s, start, end) => {
+  while (start <= end) {
+    if (s[start] != s[end]) {
+      return false;
+    }
+    start++;
+    end--;
   }
   return true;
 }

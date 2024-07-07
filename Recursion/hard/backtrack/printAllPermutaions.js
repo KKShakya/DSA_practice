@@ -9,33 +9,33 @@
 // so to keep its track we kind of have map that says the elemnt has been taken or not;
 
 
-var permute = function(nums) {
+var permute = function (nums) {
   let ans = [];
   let freq = []
-  helper(nums,ans,[],freq);
+  helper(nums, ans, [], freq);
   return ans;
 };
 
-const helper = (arr,ans,ds,freq)=>{
-  
-  if(ds.length==arr.length){
-      ans.push([...ds]);
-      return;
+const helper = (arr, ans, ds, freq) => {
+
+  if (ds.length == arr.length) {
+    ans.push([...ds]);
+    return;
   }
 
- for(let i=0;i<arr.length;i++){
+  for (let i = 0; i < arr.length; i++) {
     //if not already taken//visited
-    if(!freq[i]){
+    if (!freq[i]) {
       //mark as taken
       freq[i] = true
       //then take it
       ds.push(arr[i]);
-      helper(arr,ans,ds,freq);
+      helper(arr, ans, ds, freq);
       //backtrack
       ds.pop();
       freq[i] = false;
     }
- }
+  }
 
 }
 // SC = O(n!)
@@ -56,25 +56,25 @@ const helper = (arr,ans,ds,freq)=>{
 
 // so this way we got all our permutatoiosn;
 
-var permute2 = function(nums) {
+var permute2 = function (nums) {
   let ans = [];
-  helper(nums,ans,0);
+  helper(nums, ans, 0);
   return ans;
 };
 
-const helper2 = (arr,ans,idx)=>{
-  
-  if(idx==arr.length){
-      ans.push([...arr]);
-      return;
+const helper2 = (arr, ans, idx) => {
+
+  if (idx == arr.length) {
+    ans.push([...arr]);
+    return;
   }
 
- for(let i=idx;i<arr.length;i++){
+  for (let i = idx; i < arr.length; i++) {
     //swap for ith poisiton;
-     [arr[i],arr[idx]] = [arr[idx],arr[i]];
-     helper2(arr,ans,idx+1);
-     //backtrack
-       [arr[i],arr[idx]] = [arr[idx],arr[i]];
- }
+    [arr[i], arr[idx]] = [arr[idx], arr[i]];
+    helper2(arr, ans, idx + 1);
+    //backtrack
+    [arr[i], arr[idx]] = [arr[idx], arr[i]];
+  }
 
 }
