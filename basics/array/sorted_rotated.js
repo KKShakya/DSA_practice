@@ -4,7 +4,7 @@
 
 // Note that the first element and the last element are also connected.
 
-// If all a <= b, A is already sorted.
+// If all a <= b, a is already sorted.
 // If all a <= b but only one a > b,
 // we can rotate and make b the first element.
 // Other case, return false.
@@ -30,7 +30,14 @@ function isSorted(arr) {
 }
 
 
+
+// coampring same thing like above
+// i=0, (0+1)%4 = 1
+// i=1, (1+1)%4 = 2
+// i=2, (2+1)%4 = 3
+// i=3, (3+1)%4 = 0
 //best
+
  var check = function(nums) {
 
   let count = 0;
